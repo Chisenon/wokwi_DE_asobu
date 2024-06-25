@@ -11,14 +11,12 @@ DHT dht(DHTPIN, DHTTYPE);
 
 void setup()
 {
-    // シリアル通信の初期化
     Serial1.begin(115200);
     dht.begin();
 }
 
 void loop()
 {
-    // 三秒おきに温度と湿度を取得
     delay(3000);
 
     float h = dht.readHumidity();
