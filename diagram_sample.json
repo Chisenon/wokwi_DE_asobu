@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Chisenon",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": -3.15, "left": 13.2, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 44.6,
+      "left": 134.4,
+      "attrs": { "color": "red", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 102.2,
+      "left": 134.4,
+      "attrs": { "color": "blue", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 159.8,
+      "left": 134.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -5.6,
+      "left": -37.3,
+      "attrs": { "common": "cathode" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "rgb1:COM", "pico:GND.2", "black", [ "v0" ] ],
+    [ "rgb1:G", "pico:GP5", "green", [ "v28.8", "h1.3" ] ],
+    [ "rgb1:B", "pico:GP4", "blue", [ "v19.2", "h1.6" ] ],
+    [ "rgb1:R", "pico:GP6", "red", [ "v48" ] ],
+    [ "btn2:1.l", "pico:GP20", "blue", [ "h-19.2", "v38.4" ] ],
+    [ "pico:GP19", "btn3:1.l", "green", [ "h30", "v19.2" ] ],
+    [ "btn1:1.l", "pico:GP21", "red", [ "h-28.8", "v76.8", "h-19.2" ] ],
+    [ "btn3:2.l", "pico:GND.5", "black", [ "h-28.8", "v-19" ] ],
+    [ "btn2:2.l", "pico:GND.5", "black", [ "h-9.6", "v38.6" ] ],
+    [ "btn1:2.l", "pico:GND.5", "black", [ "h-9.6", "v96.2" ] ]
+  ],
+  "dependencies": {}
+}
